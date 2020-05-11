@@ -1,1 +1,16 @@
-...
+il processo padre per comunicare con il processo figlio prepara:
+- una pipe
+- una memory map condivisa
+
+il processo padre manda i dati al processo figlio attraverso la pipe
+
+il processo figlio restituisce il risultato attraverso la memory map convidisa
+
+il processo padre prende come argomento a linea di comando un nome di file.
+il processo padre legge il file e manda i contenuti attraverso la pipe al processo figlio.
+
+il processo figlio riceve attraverso la pipe i contenuti del file e calcola SHA3_512.
+
+quando la pipe raggiunge EOF, il processo figlio produce il digest di SHA3_512 e lo scrive nella memory map condivisa, poi il processo figlio termina.
+
+quando al processo padre viene notificato che il processo figlio ha terminato, prende il digest dalla memory map condivisa e lo scrive a video ("SHA3_512 del file %s è il seguente: " <segue digest in formato esadecimale>).
