@@ -1,4 +1,4 @@
-# esercizio-C-TEMPLATE
+# esercizio-C-2020-05-12-proc-pipe-mmap
 
 Le specifiche dell'esercizio si trovano nel file 'specifiche.txt'.
 
